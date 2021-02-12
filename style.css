@@ -1,0 +1,253 @@
+/* ALL VERSION */ 
+/*#231D39 */
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+#wrap{
+    min-height: 100%;
+    position: relative;
+    background: #1c1630;
+    overflow: hidden;
+}
+
+.game{
+    position: relative;
+}
+
+.card-img-overlay {
+    position: absolute;
+    margin-top: 23%;
+}
+
+.card-img-overlay p{
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    font-weight: 600;
+}
+
+nav{
+    background: #1c1630;
+}
+
+nav .nav-brand{
+    font-family: 'Rock Salt', cursive;
+}
+
+.banner{
+    background: url(img/images-5.jpg);
+    height: 250px;
+    background-size: cover;
+    position: relative;
+}
+
+.filter{
+    height: 200px;
+    background: black;
+    opacity: 0.6;
+}
+
+.nav-link{
+    color: white;
+}
+
+.active{
+    color: #7040f2;
+}
+
+.nav-link:hover{
+    color: #7040f2;
+}
+
+.teks{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+#t-1{
+    color: #7040f2;
+    font-size: 4vw;
+    margin-bottom: 0px;
+    font-weight: 670;
+}
+
+#t-2{
+    color: white;
+    font-size: 7vw;
+    margin-top: 0px;
+    font-weight: 800;
+}
+
+#t-3{
+    color: white;
+    font-size: 3vw;
+    font-weight: 300;
+    margin-top: 0px;
+}
+
+.teks button{
+    background: #7040f2;
+    color: white;
+}
+
+.video{
+    background: #1c1630;
+    padding-bottom: 60px;
+}
+
+.video img{
+    padding-top: 25px;
+    width: 100%;
+}
+
+.video p{
+    text-align: center;
+    padding-top: 25px;
+}
+
+.garis{
+    border-bottom: 2px solid #7040f2;
+    width: 30%;
+    margin: auto;
+}
+
+.video button{
+    background: #7040f2;
+    color: white;
+}
+
+.btn:hover{
+    transform: skew(-20deg);
+}
+
+.header{
+    background-image: linear-gradient(to right, #231D39, black);
+    color: white;
+    text-align: center;
+    padding-bottom: 22px;
+}
+
+.header a:hover{
+    transform: translate(0,-10px);
+}
+
+
+.card:hover{
+    transform: scale(1.1);
+    transition: transform 0.7s ease-out;
+}
+
+.statistik{
+    background-image: url(img/images-5.jpg);
+    background-size: cover;
+    height: 250px;
+    position: relative;
+}
+
+.stats{
+    position: absolute;
+    font-size: 120%;
+    font-weight: 500;
+    top: 25%;
+    left:5%;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    background: black;
+    width: 100%;
+    padding: 15px;
+    border-top: 1px solid white;
+}
+
+.depart{
+    color: red;
+}
+
+.head-foot{
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 130%;
+}
+
+i{
+    margin-right: 10px;
+}
+
+.sosmed i{
+    background: #7040f2;
+    padding:10px;
+    border-radius: 100%;
+    color: white;
+}
+
+.contact i{
+    color: #7040f2;
+    font-size: 250%;
+    margin-bottom: 10px;
+}
+
+form ul li{
+    color: red;
+    text-align: left;
+    font-style: italic;
+}
+
+.about-head{
+    font-size: 170%;
+    font-weight: 500;
+}
+
+.about .container{
+    text-align: center;
+    margin: auto;
+}
+
+.angka{
+    font-size: 160%;
+    font-weight: 800;
+}
+
+
+/* LANDSCAPE PHONE VERSION AND HIGHER */
+@media (min-width: 576px) { 
+    .banner{
+        height: 350px;
+    }
+    
+    .filter{
+        height: 350px;
+        background: black;
+        opacity: 0.6;
+    }
+    
+    .video img{
+        width: 300px;
+        padding-left: 15px;
+    }
+    
+    .statistik{
+        height: 350px;
+    }
+    
+    .filter{
+        height: 350px;
+        background: black;
+        opacity: 0.6;
+    }
+    
+    .stats{
+        font-size: 200%;
+        left: 10%;
+    }
+    
+    .contact i{
+        font-size: 300%;
+    }
+    
+    
+}

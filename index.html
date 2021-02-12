@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Website Esport</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap.css">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="icon/css/all.css">
+        
+    </head>
+    <body>
+        
+        <div id="wrap">
+            
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                  <div class="container-fluid">
+                  <a href="#" class="nav-brand text-white">Grim Repear</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                      <div class="navbar-nav">
+                        <a class="nav-link active" href="#" v-on:click.prevent="currentView = 'home'">Home</a>
+                        <a class="nav-link" href="#" v-on:click.prevent="currentView = 'events'">Events</a>
+                        <a class="nav-link" href="#" v-on:click.prevent="currentView = 'contact'">Contact</a>
+                        <a class="nav-link" href="#" v-on:click.prevent="currentView = 'about'">About</a>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+            
+            <banner-app></banner-app>
+            
+            <component v-bind:is="currentView">
+                
+            </component>
+            
+            <div style="padding-bottom:600px"></div>
+            
+            <!-- footer -->
+            <footer-app></footer-app>
+                
+        </div>
+           
+     <script src="vue.min.js"></script> 
+   <!--  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        
+        </div>
+        
+        <script>
+          
+            //component banner 
+            Vue.component('banner-app', {
+                template: 
+                `<div class="banner">
+                    <div class="filter"></div>
+                    <div class="teks">
+                        <p id="t-1">Welcome To</p>
+                        <p id="t-2">GRIM REAPER ESPORT</p>
+                        <p id="t-3">Menang bukanlah menjadi yang terdepan dari orang lain. Menang adalah menjadi yang terdepan dari diri Anda sendiri</p>
+                        <button class="btn btn-sm">Tentang Kami</button>
+                    </div>
+                </div>`
+            })
+            
+            //Component video
+            Vue.component('video-app', {
+                template: 
+                `<div class="video">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img src="img/video.jpg" class="img-responsive" width="100%">
+                        </div>
+                        <div class="col-sm-7">
+                            <p class="text-white" style="font-size:80%">TONTON PERTANDINGAN <br><span style="color:#7040f2; font-size:250%">TERBAIK KAMI</span></p>
+                            <div class="garis"></div>
+                            <p class="text-white px-3" style="font-size:80%; font-weight:300;">Tonton hasil turnamen club Grim Reaper dan lihat keseruan para pemainnya</p>
+                            <button class="btn btn-sm d-block mx-auto">Tonton</button>
+                        </div>
+                    </div>
+                </div>`
+            })
+            
+            //Component header
+            Vue.component('header-app', {
+                props: ['teks'],
+                template: 
+                `<div class="header">
+                    <p style="font-size:80%; color:#7040f2; padding-top:20px; font-weight:500">GRIM REAPER<br><span style="font-size:250%; color:white;">{{teks}}</span></p>
+                    <div class="garis"></div>
+                </div>`
+            })
+           
+            //Component game 
+            Vue.component('game-app', {
+                data: function(){
+                    return {
+                        games: [
+                        {judul:'Free Fire', genre:'Survival', gambar:'freefire.jpeg'},
+                        {judul:'Player Unknown Battlegrounds', genre:'Survival', gambar:'pubg.jpeg'},
+                        {judul:'League Of Legends', genre:'RPG', gambar:'lol.jpeg'},
+                        {judul:'Mobile Legends', genre:'RPG', gambar:'ml.jpeg'}
+                        ],
+                    }
+                },
+                template: 
+                `<div class="row pt-3" style="background:#1c1630">
+                 <div class="col-sm-6 mt-4" v-for="g in games">
+                <div class="game card text-white">
+                     <img class="card-img" v-bind:src="g.gambar">
+                     <div class="card-img-overlay">
+                         <span style="background:#7040f2; padding:5px"><b>{{g.genre}}</b></span>
+                         <br>
+                         <p class="card-title pt-2" style="font-size:100%">{{g.judul}}</p>
+                     </div>
+                     </div>
+                     </div>
+               </div>`
+            })
+            
+            //Component player
+            Vue.component('player-app', {
+                data: function(){
+                    return{
+                      players: [
+                         {nama:'Nelson "GR•nelson" Abraham', gambar: 'img/player1.jpg'},
+                         {nama:'Jericho "GR•predator" Antonie', gambar:'img/player2.jpg'},
+                         {nama:'Robert "GR•eagle" Junior', gambar:'img/player3.jpg'},
+                         {nama:'Brian "GR•fred" Fredrich', gambar:'img/player4.jpg'}
+                         ],
+                    }
+                },
+                template: 
+                `<div class="row pt-3" style="background:#1c1630">
+                <div class="col-sm-6 mt-4" v-for="p in players">
+                <div class="card player text-white text-center" style="background:#1c1630">
+                  <img v-bind:src="p.gambar" class="card-img-top">
+                  <div class="card-body">
+                    <p class="card-text">{{p.nama}}</p>
+                  </div>
+                  </div>
+                  </div>
+                </div>`
+            })
+            
+            //Component statistik 
+            Vue.component('statistik-app', {
+                template: 
+                `<div class="statistik text-center text-white">
+                    <div class="filter"></div>
+                    <div class="row stats">
+                        <div class="col-6">
+                            <p>150<br> Permainan</p>
+                        </div>
+                        <div class="col-6">
+                            <p>9.8<br>KDA</p>
+                        </div>
+                        <div class="col-6">
+                            <p>20<br>Turnamen</p>
+                        </div>
+                        <div class="col-6">
+                            <p>12<br>Trofi</p>
+                        </div>
+                    </div>
+                </div>`
+            })
+            
+            //component sosmed 
+            Vue.component('sosmed-app', {
+                template:
+                `<div class="sosmed">
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>`
+            })
+            
+            //Component footer
+            Vue.component('footer-app', {
+                template: 
+                `<footer class="text-center text-white">
+                    <p class="head-foot">  <i class="fas fa-arrow-right" style="color:#7040f2"></i>About Us</p>
+                    <p>Grim Reaper adalah club Esport yang berdiri sejak tahun 2016. Misi kami adalah menjadi club esport yang suportif, solid, dan mengharumkan nama bangsa</p>
+                    <sosmed-app></sosmed-app>
+                    <p class="head-foot mt-3"><i class="fas fa-arrow-right" style="color:#7040f2"></i>Kontak Kami</p>
+                    <p><i class="fas fa-home"></i>Kantor<br><span class="depart">Jl. Arpanca No.80</span></p>
+                    <pp<i class="fas fa-envelope"></i>Email<br><span class="depart"> grimreaperfams@gmail.com</span></p>
+                    <p><i class="fas fa-phone"></i>Telepon<br><span class="depart">0219384728</span></p>
+                    <p class="text-muted">&copy; 2021 Grim Reaper</p>
+                </footer>`
+            })
+            
+            Vue.component('home', {
+             template:
+             `<div>
+             <video-app></video-app>
+             <header-app teks="GAME"></header-app>
+             <game-app></game-app>
+            <header-app teks="PEMAIN" class="mt-4"></header-app>
+            <player-app></player-app>
+            <header-app teks="STATISTIK" class="mt-3"></header-app>
+            <statistik-app class="my-4"></statistik-app>
+            </div>`
+            })
+            
+            Vue.component('contact', {
+                template: 
+                `<div class="text-white contact container text-center">
+                    <h3 class="head-foot mt-5">Contact Us</h3>
+                    <p>Kamu bisa menuliskan pertanyaan, saran dan kritik, atau tawaran kerja sama kepada kami</p>
+                    <div>
+                        <i class="fas fa-phone"></i><br>
+                        <span style="font-size:150%"><b>Telepon<b></span><br>
+                        <span class="text-muted">0219384728</span><br>
+                        <div class="pb-4"></div>
+                        <i class="fas fa-envelope"></i><br>
+                        <span style="font-size:150%"><b>Email<b></span><br>
+                        <span class="text-muted">grimreaperfams@gmail.com</span>
+                        <div class="pb-4"></div>
+                        <i class="fas fa-home"></i><br>
+                        <span style="font-size:150%"><b><b></span><br>
+                        <span class="text-muted">Jl. Arpanca No. 80</span>
+                        <div class="pb-4"></div>
+                        <form-contact></form-contact>
+                    </div>
+                </div>`
+            })
+            
+            Vue.component('form-contact', {
+                data: function(){
+                    return {
+                        nama: '',
+                        pesan: '',
+                        email: '',
+                        error: []
+                    }
+                },
+                methods: {
+                    validate: function(e){
+                        
+                        this.error = []
+                        
+                        if(!this.nama){
+                            this.error.push('Nama tidak boleh kosong')
+                        }
+                        
+                        if(!this.email){
+                            this.error.push('Email tidak boleh kosong')
+                        }
+                        
+                        if(!this.pesan){
+                            this.error.push('Pesan tidak boleh kosong')
+                        }
+                        
+                        if(this.error == 0){
+                            return true
+                        }
+                       e.preventDefault()
+                    }
+                },
+                template: 
+                `<form method="post" action="https://google.com" v-on:submit="validate">
+                     <ul v-if="error.length > 0">
+                         <li v-for="e in error">{{e}}</li>
+                     </ul>
+                    <div class="mb-3">
+                        <label>Nama</label>
+                        <input class="form-control" v-model="nama">
+                    </div>
+                    <div class="my-3">
+                        <label>Email</label>
+                        <input class="form-control" type="email" v-model="email">
+                    </div>
+                    <div class="my-3">
+                        <label>Pesan</label>
+                        <textarea class="form-control" v-model="pesan"></textarea>
+                    </div>
+                    <button class="btn btn-block" style="background:#7040f2">Kirim</button>
+                </form>`
+            })
+            
+            Vue.component('events', {
+                data: function(){
+                    return{
+                        matches: ['img/match1.jpg', 'img/match2.jpg', 'img/match3.jpg', 'img/match4.jpg']
+                    }
+                },
+                template: 
+                `<div class="row events my-5">
+                    <div class="col-sm-6" v-for="m in matches">
+                        <div class="card mb-3">
+                            <img v-bind:src="m" width="100%">
+                        </div>
+                    </div>
+                </div>`
+            })
+            
+            //Component about
+            Vue.component('about', {
+                template:
+                `<div class="about">
+                    <p class="about-head my-3 text-white text-center"><b>Tentang Kami</b></p>
+                    <div class="row container">
+                        <div class="col-sm-4">
+                            <span class="angka" style="color:#7040f2">01.</span>
+                            <br>
+                            <span class="text-white"><b>Misi Kami</b></span>
+                            <p class="text-muted mb-3">Misi kami adalah menjadi club Esport yang suportif, solid, dan mengharumkan nama bangsa</p>
+                        </div>
+                            <div class="col-sm-4">
+                            <span class="angka" style="color:#7040f2">02.</span>
+                            <br>
+                            <span class="text-white"><b>Visi Kami</b></span>
+                            <p class="text-muted mb-3">Visi kami adalah mengembangkan dan menyalurkan potensi esport di kalangan anak muda</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="angka" style="color:#7040f2">03.</span>
+                            <br>
+                            <span class="text-white"><b>Motto Kami</b></span>
+                            <p class="text-muted mb-3">Kegagalan bukanlah akhir perjuangan, tetapi awal sebuah kesuksesan</p>
+                        </div>
+                     </div>
+                        <p class="about-head my-3 text-white text-center">Founder</p>
+                        <div class="founder row text-white text-center container">
+                            <div class="col-sm-6 mt-2">
+                                <img src="img/founder.jpg" width="70%" class="img-thumbnail">
+                            </div>
+                            <div class="col-sm-6 mt-2">
+                            <p style="color:#7040f2"><b>Mark Tyson</b></p>
+                            <p class="text-muted">"Di era digitalisasi adalah saatnya mengembangkan skill apapun yang kita miliki, Termasuk gaming. Sekarang, gaming bukan sekedar menghabiskan waktu bermain game saja. Tetapi bisa menjadi ladang prestasi dan menghasilkan uang."</p>
+                            </div>
+                        </div>
+                </div>`
+            })
+        
+            let app = new Vue({
+                el: '#wrap',
+                data: {
+                     currentView: 'about'
+                }
+            })
+        </script>
+        
+
+    </body>
+</html>
