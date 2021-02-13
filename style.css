@@ -1,5 +1,4 @@
 /* ALL VERSION */ 
-/*#231D39 */
 
 body{
     height: 100%;
@@ -69,7 +68,7 @@ nav .nav-brand{
 
 #t-1{
     color: #7040f2;
-    font-size: 4vw;
+    font-size: 200%;
     margin-bottom: 0px;
     font-weight: 670;
 }
